@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>单元测试 - 校园失物招领</title>
+  <style>
+    body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+           max-width: 800px; margin: 30px auto; padding: 0 20px; background: #f7fafc; }
+    h1 { color: #2d3748; }
+    .summary { padding: 16px; border-radius: 8px; margin-bottom: 20px; font-size: 16px; }
+    .summary.pass { background: #c6f6d5; color: #22543d; }
+    .summary.fail { background: #fed7d7; color: #742a2a; }
+    .test-case { background: #fff; padding: 12px 16px; margin-bottom: 8px; border-radius: 6px;
+                 border-left: 4px solid #e2e8f0; }
+    .test-case.pass { border-left-color: #48bb78; }
+    .test-case.fail { border-left-color: #f56565; background: #fff5f5; }
+    .test-name { font-weight: 600; margin-bottom: 4px; }
+    .test-detail { font-size: 13px; color: #718096; font-family: Consolas, monospace; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 6px; }
+    .tag.pass { background: #c6f6d5; color: #22543d; }
+    .tag.fail { background: #fed7d7; color: #742a2a; }
+  </style>
+</head>
+<body>
+  <h1>🧪 单元测试结果</h1>
+  <div id="summary" class="summary">运行中…</div>
+  <div id="results"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/test.js"></script>
+</body>
+</html>
