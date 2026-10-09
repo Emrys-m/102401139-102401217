@@ -23,6 +23,15 @@ function go(name) {
   if (tab) tab.classList.add("active");
   if (name === "home") renderHome();
   if (name === "mine") renderMine();
+  if (name === "search") resetSearch();
+}
+
+function resetSearch() {
+  $("search-input").value = "";
+  $("search-history").style.display = "block";
+  $("search-result").style.display = "none";
+  $("search-list").innerHTML = "";
+  $("result-count").textContent = "";
 }
 
 function backFromDetail() {
