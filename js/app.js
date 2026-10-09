@@ -32,6 +32,7 @@ function resetSearch() {
   $("search-result").style.display = "none";
   $("search-list").innerHTML = "";
   $("result-count").textContent = "";
+  renderHistory();
 }
 
 function backFromDetail() {
@@ -174,6 +175,7 @@ function doSearch() {
     showToast("请输入关键词");
     return;
   }
+  addSearchHistory(kw);
   const results = searchItems(loadItems(), kw);
   $("search-history").style.display = "none";
   $("search-result").style.display = "block";
@@ -294,3 +296,26 @@ function showToast(msg) {
 // ====== 启动 ======
 renderEmojiPicker();
 renderHome();
+// ====== 搜索历史 ======
+function renderHistory() {
+  const list = getSearchHistory();
+  const section = $("real-history-section");
+  const tags = $("real-history-tags");
+  if (!list.length) {
+    section.style.display = "none";
+    return;
+  }
+  section.style.display = "block";
+  tags.innerHTML = list
+    .map(
+      (kw) =>
+        `<div class="history-tag" onclick="quickSearch('${escapeHtml(kw)}')">${escapeHtml(kw)}</div>`,
+    )
+    .join("");
+}
+
+function doClearHistory() {
+  clearSearchHistory();
+  renderHistory();
+  showToast("已清空历史");
+}
