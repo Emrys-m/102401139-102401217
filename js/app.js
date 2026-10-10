@@ -319,3 +319,32 @@ function doClearHistory() {
   renderHistory();
   showToast("已清空历史");
 }
+
+/* ===== 秋叶飘落 ===== */
+(function initLeaves() {
+  const container = document.getElementById("leafContainer");
+  if (!container) return;
+  const leafEmojis = ["🍂", "🍁", "🍃"];
+  const count = 4;
+  for (let i = 0; i < count; i++) {
+    const leaf = document.createElement("span");
+    leaf.className = "leaf";
+    leaf.textContent =
+      leafEmojis[Math.floor(Math.random() * leafEmojis.length)];
+    leaf.style.left = Math.random() * 100 + "%";
+    leaf.style.animationDuration = 10 + Math.random() * 8 + "s";
+    leaf.style.animationDelay = -Math.random() * 18 + "s";
+    leaf.style.fontSize = 16 + Math.random() * 12 + "px";
+    container.appendChild(leaf);
+  }
+})();
+
+/* ===== 点击水波纹 ===== */
+document.addEventListener("click", function (e) {
+  const ripple = document.createElement("span");
+  ripple.className = "ripple";
+  ripple.style.left = e.clientX + "px";
+  ripple.style.top = e.clientY + "px";
+  document.body.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 700);
+});
